@@ -1,0 +1,32 @@
+
+<h1>Registre su empresa</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Name:</label>
+    <input type="text" formControlName="name">
+    <small *ngIf="form.controls['name'].errors && form.controls['name'].touched">
+        Tiene errores
+    </small>
+    <br>
+
+    <label>Ruc:</label>
+    <input type="text" formControlName="ruc">
+    <small *ngIf="form.controls['ruc'].errors && form.controls['ruc'].touched">
+        Tiene errrores
+    </small>
+    <br>
+    <label>Fecha de inauguración</label>
+    <input type="date" formControlName="openingdate">
+    
+    <br>
+    <label>Numero de empleados</label>
+    <input type="number" formControlName="employees">
+    <br>
+    <label>Acepta los terminos y condiciones</label>
+    <input type="checkbox" formControlName="state">
+    <small *ngIf="form.controls['state'].errors && form.controls['state'].touched ">
+        El checkbox debe estar seleccionado.
+    </small>
+    <br>
+    <button pButton type="submit" label="Guardar"></button>
+    
+</form>
