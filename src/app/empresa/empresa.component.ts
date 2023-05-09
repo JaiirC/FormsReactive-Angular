@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-
 
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
   styleUrls: ['./empresa.component.scss']
 })
-export class EmpresaComponent {
-  form: FormGroup;//Reactive Form
 
+export class EmpresaComponent {
+  cities = [
+    { cit: 'Quito', code: 'uio' },
+    { cit: 'Guayaquil', code: 'gye' },
+    { cit: 'Cuenca', code: 'cue' }
+  ];
+  form: FormGroup;//Reactive Form
+  
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -18,6 +23,11 @@ export class EmpresaComponent {
       openingdate: [new Date(),[Validators.required]], 
       state: [false,[Validators.required, this.isTrueValidator]],
       employees: [0, [Validators.min(1)]],
+      money:[0, [Validators.min(1)]],
+      city: [{}],
+      stars: [5],
+      psword:[''],
+      tags:[''],
     })
   }
   
@@ -38,4 +48,5 @@ export class EmpresaComponent {
     }
   }
   
+
 }

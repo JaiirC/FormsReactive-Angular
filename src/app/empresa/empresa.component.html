@@ -1,32 +1,67 @@
 
 <h1>Registre su empresa</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <label>Name:</label>
-    <input type="text" formControlName="name">
+    <label>Nombre de la empresa:</label>
+    <input type="text" pInputText formControlName="name"/>
     <small *ngIf="form.controls['name'].errors && form.controls['name'].touched">
         Tiene errores
     </small>
     <br>
 
     <label>Ruc:</label>
-    <input type="text" formControlName="ruc">
+    <input type="text" pInputText formControlName="name" formControlName="ruc"/>
     <small *ngIf="form.controls['ruc'].errors && form.controls['ruc'].touched">
         Tiene errrores
     </small>
     <br>
     <label>Fecha de inauguración</label>
-    <input type="date" formControlName="openingdate">
-    
+    <p-calendar inputId="birthdate"
+                        formControlName="openingdate"
+                        [showIcon]="true"
+    ></p-calendar>
     <br>
     <label>Numero de empleados</label>
-    <input type="number" formControlName="employees">
+    <p-inputNumber inputId="age"
+                         formControlName="employees"
+                         [showButtons]="true"
+                         [min]="0"
+                         [step]="100"
+    ></p-inputNumber>
+    <br>
+    
+    <label>Cuanto dinero ganan?</label>
+    <p-inputNumber  formControlName="money" 
+                    inputId="currency-us" 
+                    mode="currency" 
+                    currency="USD" 
+                    locale="en-US"> 
+    </p-inputNumber>
     <br>
     <label>Acepta los terminos y condiciones</label>
-    <input type="checkbox" formControlName="state">
+    <p-checkbox  formControlName="state" 
+                [binary]="true" 
+                inputId="binary">
+    </p-checkbox>
     <small *ngIf="form.controls['state'].errors && form.controls['state'].touched ">
         El checkbox debe estar seleccionado.
     </small>
     <br>
+    <p-multiSelect [options]="cities"
+        formControlName="city" 
+        defaultLabel="Select a City" 
+        optionLabel="name" 
+        ></p-multiSelect>
+    <br>
+    <label>califiquenos</label>
+    <p-rating formControlName="stars"></p-rating>
+    <br>
+    <label>Ingrese etuiquetas de a que se dedica</label>
+    <p-chips formControlName="tags" separator="," ></p-chips>
+    <br>
+    <label>Ingrese una contraseña</label>
+    <p-password  formControlName="psword" class="ng-invalid ng-dirty"></p-password>
+    <br>
     <button pButton type="submit" label="Guardar"></button>
     
 </form>
+{{form.value|json}}
