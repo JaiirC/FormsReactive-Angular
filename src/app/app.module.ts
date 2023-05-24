@@ -18,12 +18,16 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { RatingModule } from 'primeng/rating';
 import { PasswordModule } from 'primeng/password';
 import { ChipsModule } from 'primeng/chips';
+import { EmpresaListComponent } from './empresa-list/empresa-list.component';
+import {TableModule} from "primeng/table";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmpresaComponent
+    EmpresaComponent,
+    EmpresaListComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { ChipsModule } from 'primeng/chips';
     RatingModule,
     PasswordModule,
     ChipsModule,
+    PanelModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

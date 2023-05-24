@@ -1,6 +1,10 @@
 
 <h1>Registre su empresa</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+        <label>ID:</label>
+        <input type="number" pInputText formControlName="id"/>
+    </div>
     <label>Nombre de la empresa:</label>
     <input type="text" pInputText formControlName="name"/>
     <small *ngIf="form.controls['name'].errors && form.controls['name'].touched">
@@ -46,12 +50,6 @@
         El checkbox debe estar seleccionado.
     </small>
     <br>
-    <p-multiSelect [options]="cities"
-        formControlName="city" 
-        defaultLabel="Select a City" 
-        optionLabel="name" 
-        ></p-multiSelect>
-    <br>
     <label>califiquenos</label>
     <p-rating formControlName="stars"></p-rating>
     <br>
@@ -61,7 +59,11 @@
     <label>Ingrese una contraseña</label>
     <p-password  formControlName="psword" class="ng-invalid ng-dirty"></p-password>
     <br>
-    <button pButton type="submit" label="Guardar"></button>
+    <div class="field">
+        <button pButton type="submit" label="Guardar"></button>
+        <button pButton type="button" class="p-button-warning" label="Actualizar" (click)="updateEmpresa()"></button>
+        <button pButton type="button" class="p-button-success" label="Ver Listado" [routerLink]="['/empresa-list']"></button>
+    </div>
     
 </form>
 {{form.value|json}}
