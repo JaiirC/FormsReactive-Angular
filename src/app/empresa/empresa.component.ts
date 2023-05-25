@@ -52,7 +52,7 @@ export class EmpresaComponent {
   }
   onSubmit() {
     if (this.form.valid) {
-      this.addEmpresa;
+      this.addEmpresa();
     } else {
       alert('Formulario No Valido');
     }

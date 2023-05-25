@@ -12,8 +12,8 @@ export class EmpresasService {
    private loadEmpresas() {
     this.empresas = [];
     this.empresas.push(
-      {id: 1, name: 'Juan', ruc: 1721901302,openingdate:'1990-01-01', state: true},
-      {id: 2, name: 'Maria', ruc: 1721901332, openingdate:'1998-02-11', state: true}
+      {id: 1, name: 'Juan', ruc: 1721901302,openingdate:'2005-02-7', state: true , employees: 100, stars: 4 , money: 0},
+      {id: 2, name: 'Maria', ruc: 1721901332, openingdate:'1998-02-11', state: true,  employees: 100,stars: 3, money: 300.23}
     );
   }
   addEmpresa(payload: any) {

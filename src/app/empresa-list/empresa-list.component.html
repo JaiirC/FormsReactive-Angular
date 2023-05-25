@@ -7,6 +7,9 @@
       <th>Ruc</th>
       <th>Openingdate</th>
       <th>State</th>
+      <th>employees</th>
+      <th>Star</th>
+      <th>Money</th>
       <th>Opciones</th>
     </tr>
   </ng-template>
@@ -17,6 +20,9 @@
       <td>{{item.ruc}}</td>
       <td>{{item.openingdate}}</td>
       <td>{{item.state}}</td>
+      <td>{{item.employees}}</td>
+      <td>{{item.stars}}</td>
+      <td>{{item.money}}</td>
       <td>
         <button pButton type="button" class="p-button-warning" icon="pi pi-pencil"
                 (click)="editEmpresa(item)"></button>
